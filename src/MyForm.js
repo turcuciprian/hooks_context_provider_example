@@ -1,12 +1,7 @@
 import React, { useState, useContext } from "react";
-import { store } from "./store";
 
-function MyForm() {
-  const globalState = useContext(store);
-  console.log(globalState);
-  debugger;
+function MyForm(props) {
   const [my_value, setMyValue] = useState("");
-//   const { myFormFieldValue, modifyValue } = useContext(theContext);
   return (
     <div>
       <div>
@@ -19,7 +14,7 @@ function MyForm() {
         <div style={{ fontSize: 14, display: "inline-block" }}>
           Store Value:
         </div>
-        <b>{myFormFieldValue}</b> <br />
+        <b>{props.myFormFieldValue}</b> <br />
       </div>
       <input
         type="text"
@@ -30,7 +25,11 @@ function MyForm() {
       />
       <button
         onClick={() => {
-          modifyValue(my_value);
+          console.log(props);
+          // props.dispatch({
+          //   type: "update_value",
+          //   newValue: my_value
+          // });
           //TO-DO: save to the store
         }}
       >
