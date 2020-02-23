@@ -23,12 +23,11 @@ function MyForm() {
         value={my_value}
         onChange={newValue => {
           setMyValue(newValue.target.value);
-          modifyValue(newValue.target.value);
         }}
       />
       <button
         onClick={() => {
-          debugger;
+          modifyValue(my_value);
           //TO-DO: save to the store
         }}
       >
