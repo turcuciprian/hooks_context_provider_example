@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
+import { store } from "./store";
 
 function MyForm(props) {
   const [my_value, setMyValue] = useState("");
+  const tempContext = useContext(store);
+
   return (
     <div>
       <div>
@@ -14,7 +17,7 @@ function MyForm(props) {
         <div style={{ fontSize: 14, display: "inline-block" }}>
           Store Value:
         </div>
-        <b>{props.myFormFieldValue}</b> <br />
+        <b>{tempContext.state.myFormFieldValue}</b> <br />
       </div>
       <input
         type="text"
@@ -26,10 +29,10 @@ function MyForm(props) {
       <button
         onClick={() => {
           console.log(props);
-          // props.dispatch({
-          //   type: "update_value",
-          //   newValue: my_value
-          // });
+          tempContext.dispatch({
+            type: "update_value",
+            payload: my_value
+          });
           //TO-DO: save to the store
         }}
       >
