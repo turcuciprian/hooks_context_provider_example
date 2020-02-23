@@ -1,4 +1,5 @@
-import React from "react";
+import React, {createContext, useReducer} from 'react';
+const initialState = {};
+const theContext = React.createContext(initialState);
 
-const theContext = React.createContext();
 export default theContext;

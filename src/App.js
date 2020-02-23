@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import "./MyForm";
 import MyForm from "./MyForm";
-import theContext from "./theContext";
+import { StateProvider } from "./store";
 
 function App() {
   let [myFormFieldValue, setTheDefaultValue] = useState("");
@@ -12,11 +12,11 @@ function App() {
   };
   return (
     <div className="App">
-      <Provider value={{ myFormFieldValue, modifyValue }}>
+      <StateProvider>
         <header className="App-header">
           <MyForm />
         </header>
-      </Provider>
+      </StateProvider>
     </div>
   );
 }

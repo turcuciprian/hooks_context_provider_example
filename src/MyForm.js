@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
-import theContext from "./theContext";
+import { store } from "./store";
 
 function MyForm() {
+  const globalState = useContext(store);
+  console.log(globalState);
+  debugger;
   const [my_value, setMyValue] = useState("");
-  const { myFormFieldValue, modifyValue } = useContext(theContext);
+//   const { myFormFieldValue, modifyValue } = useContext(theContext);
   return (
     <div>
       <div>
