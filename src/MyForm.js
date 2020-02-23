@@ -3,7 +3,7 @@ import theContext from "./theContext";
 
 function MyForm() {
   const [my_value, setMyValue] = useState("");
-  const { myFormFieldValue, modifyValue } = useContext(theContext);
+  const { myFieldValue, setMyFieldValue } = useContext(theContext);
   return (
     <div>
       <div>
@@ -16,7 +16,7 @@ function MyForm() {
         <div style={{ fontSize: 14, display: "inline-block" }}>
           Store Value:
         </div>
-        <b>{myFormFieldValue}</b> <br />
+        <b>{myFieldValue}</b> <br />
       </div>
       <input
         type="text"
@@ -25,14 +25,7 @@ function MyForm() {
           setMyValue(newValue.target.value);
         }}
       />
-      <button
-        onClick={() => {
-          modifyValue(my_value);
-          //TO-DO: save to the store
-        }}
-      >
-        Save to Store
-      </button>
+      <button onClick={() => setMyFieldValue(my_value)}>Save to Store</button>
     </div>
   );
 }

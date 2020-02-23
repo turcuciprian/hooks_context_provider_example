@@ -5,14 +5,11 @@ import MyForm from "./MyForm";
 import theContext from "./theContext";
 
 function App() {
-  let [myFormFieldValue, setTheDefaultValue] = useState("");
+  let [myFieldValue, setMyFieldValue] = useState("");
   const { Provider } = theContext;
-  const modifyValue = newValue => {
-    setTheDefaultValue(newValue);
-  };
   return (
     <div className="App">
-      <Provider value={{ myFormFieldValue, modifyValue }}>
+      <Provider value={{ myFieldValue, setMyFieldValue }}>
         <header className="App-header">
           <MyForm />
         </header>
