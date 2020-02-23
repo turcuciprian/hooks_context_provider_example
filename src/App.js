@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import "./MyForm";
+import MyForm from "./MyForm";
+import theContext from "./theContext";
 
 function App() {
+  let [myFormFieldValue, setTheDefaultValue] = useState("");
+  const { Provider } = theContext;
+  const modifyValue = newValue => {
+    setTheDefaultValue(newValue);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider value={{ myFormFieldValue, modifyValue }}>
+        <header className="App-header">
+          <MyForm />
+        </header>
+      </Provider>
     </div>
   );
 }
